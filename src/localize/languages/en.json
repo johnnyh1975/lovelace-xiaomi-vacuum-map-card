@@ -177,19 +177,19 @@
         },
         "tight_mopping": {
             "label": "Tight mopping"
-        },          
+        },
         "wetness_level": {
             "label": "Wetness level"
-        },     
+        },
         "mop_wash_level": {
             "label": "Mop wash level"
-        },       
+        },
         "auto_empty_mode": {
             "label": "Auto empty mode"
-        },      
+        },
         "cleaning_route": {
             "label": "Cleaning route"
-        }, 
+        },
         "cleangenius": {
             "label": "Cleangenius"
         },
@@ -244,25 +244,25 @@
             "label": "Mop pad"
         },
         "cleaning_mode": {
-          "label": "Cleaning mode"
+            "label": "Cleaning mode"
         },
         "tight_mopping": {
-          "label": "Tight mopping"
+            "label": "Tight mopping"
         },
         "wetness_level": {
-          "label": "Mop wetness"
+            "label": "Mop wetness"
         },
         "mop_wash_level": {
-          "label": "Mop washing"
+            "label": "Mop washing"
         },
         "auto_empty_mode": {
-          "label": "Auto empty mode"
+            "label": "Auto empty mode"
         },
         "cleaning_route": {
-          "label": "Cleaning route"
+            "label": "Cleaning route"
         },
         "cleangenius": {
-          "label": "CleanGenius"
+            "label": "CleanGenius"
         }
     },
     "icon": {

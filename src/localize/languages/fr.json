@@ -204,45 +204,45 @@
             "label": "Serpillère"
         },
         "bin_full": {
-          "label": "Bac plein",
-          "value": {
-            "true": "Oui",
-            "false": "Non"
-          }
+            "label": "Bac plein",
+            "value": {
+                "true": "Oui",
+                "false": "Non"
+            }
         },
         "bin_present": {
-          "label": "Bac présent",
-          "value": {
-            "true": "Oui",
-            "false": "Non"
-          }
+            "label": "Bac présent",
+            "value": {
+                "true": "Oui",
+                "false": "Non"
+            }
         },
         "water_volume": {
-          "label": "Volume d'eau"
+            "label": "Volume d'eau"
         },
         "mop_pad_humidity": {
-          "label": "Humidité de la serpillière"
+            "label": "Humidité de la serpillière"
         },
         "cleaning_mode": {
-          "label": "Mode de nettoyage"
+            "label": "Mode de nettoyage"
         },
         "tight_mopping": {
-          "label": "Nettoyage serré"
+            "label": "Nettoyage serré"
         },
         "wetness_level": {
-          "label": "Humidité de la serpillière"
+            "label": "Humidité de la serpillière"
         },
         "mop_wash_level": {
-          "label": "Lavage des serpillières"
+            "label": "Lavage des serpillières"
         },
         "auto_empty_mode": {
-          "label": "Vidage automatique"
+            "label": "Vidage automatique"
         },
         "cleaning_route": {
-          "label": "Trajectoire"
+            "label": "Trajectoire"
         },
         "cleangenius": {
-          "label": "CleanGenius"
+            "label": "CleanGenius"
         }
     },
     "icon": {

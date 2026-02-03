@@ -133,10 +133,10 @@
         "auto_empty_mode": {
             "label": "Αυτόματο άδειασμα",
             "value": {
-              "off": "Ανενεργό",
-              "standard": "Κανονικό",
-              "high_frequency": "Υψηλή συχνότητα",
-              "low_frequency": "Χαμηλή συχνότητα"
+                "off": "Ανενεργό",
+                "standard": "Κανονικό",
+                "high_frequency": "Υψηλή συχνότητα",
+                "low_frequency": "Χαμηλή συχνότητα"
             }
         },
         "battery_level": {
@@ -162,9 +162,9 @@
         "cleangenius": {
             "label": "Clean Genius",
             "value": {
-              "off": "Ανενεργό",
-              "routine_cleaning": "Καθαρισμός ρουτίνας",
-              "deep_cleaning": "Βαθύς καθαρισμός"
+                "off": "Ανενεργό",
+                "routine_cleaning": "Καθαρισμός ρουτίνας",
+                "deep_cleaning": "Βαθύς καθαρισμός"
             }
         },
         "cleaning_count": {
@@ -173,17 +173,17 @@
         "cleaning_mode": {
             "label": "Τύπος καθαρισμού",
             "value": {
-              "sweeping": "Σκούπισμα",
-              "mopping": "Σφουγγάρισμα",
-              "sweeping_and_mopping": "Σκούπισμα και σφουγγάρισμα",
-              "mopping_after_sweeping": "Σφουγγάρισμα μετά το σκούπισμα"
+                "sweeping": "Σκούπισμα",
+                "mopping": "Σφουγγάρισμα",
+                "sweeping_and_mopping": "Σκούπισμα και σφουγγάρισμα",
+                "mopping_after_sweeping": "Σφουγγάρισμα μετά το σκούπισμα"
             }
         },
         "cleaning_route": {
             "label": "Διαδρομή καθαρισμού",
             "value": {
-              "quick": "Γρήγορη",
-              "standard": "Κανονική"
+                "quick": "Γρήγορη",
+                "standard": "Κανονική"
             }
         },
         "cleaning_time": {
@@ -245,7 +245,7 @@
         },
         "mop_pad_humidity": {
             "label": "Υγρασία σφουγγαρίστρας",
-            "value":{
+            "value": {
                 "slightly_dry": "Ήπια",
                 "moist": "Μεσαία",
                 "wet": "Υγρή"
