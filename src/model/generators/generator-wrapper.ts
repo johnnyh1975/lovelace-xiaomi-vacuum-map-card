@@ -51,6 +51,6 @@ export class GeneratorWrapper {
                         ];
                     })
                     : new Promise(resolve => resolve(itemsConfigs ?? []));
-        return itemsGenerated.then(t => [...t].sort(sortFunction));
+        return itemsGenerated.then(t => [...t].sort(sortFunction).filter(t => !(t.remove ?? false)));
     }
 }

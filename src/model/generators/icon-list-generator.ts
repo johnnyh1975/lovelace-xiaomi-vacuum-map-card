@@ -86,6 +86,7 @@ export class IconListGenerator {
         const icons: IconActionConfig[] = [];
         if (IconListGenerator.isFeatureSupported(state, 8192))
             icons.push({
+                icon_id: "start_cleanup",
                 icon: "mdi:play",
                 conditions: [
                     {
@@ -112,6 +113,7 @@ export class IconListGenerator {
             });
         if (IconListGenerator.isFeatureSupported(state, 4))
             icons.push({
+                icon_id: "pause",
                 icon: "mdi:pause",
                 conditions: [
                     {
@@ -142,6 +144,7 @@ export class IconListGenerator {
             });
         if (IconListGenerator.isFeatureSupported(state, 8))
             icons.push({
+                icon_id: "stop",
                 icon: "mdi:stop",
                 conditions: [
                     {
@@ -172,6 +175,7 @@ export class IconListGenerator {
             });
         if (IconListGenerator.isFeatureSupported(state, 16))
             icons.push({
+                icon_id: "return_to_base",
                 icon: "mdi:home-map-marker",
                 conditions: [
                     {
@@ -194,6 +198,7 @@ export class IconListGenerator {
             });
         if (IconListGenerator.isFeatureSupported(state, 1024))
             icons.push({
+                icon_id: "clean_spot",
                 icon: "mdi:target-variant",
                 conditions: [
                     {
@@ -224,6 +229,7 @@ export class IconListGenerator {
             });
         if (IconListGenerator.isFeatureSupported(state, 512))
             icons.push({
+                icon_id: "locate",
                 icon: "mdi:map-marker",
                 tooltip: localize("icon.vacuum_locate", language),
                 tap_action: {
@@ -239,6 +245,7 @@ export class IconListGenerator {
         for (let i = 0; i < fanSpeeds.length; i++) {
             const fanSpeed = fanSpeeds[i];
             icons.push({
+                icon_id: "fan_speed_menu_" + fanSpeed,
                 menu_id: "fan_speed",
                 icon: fanSpeed in IconListGenerator._ICON_MAPPING ? IconListGenerator._ICON_MAPPING[fanSpeed] : "mdi:fan-alert",
                 label: localize("tile.fan_speed.value." + fanSpeed.toLowerCase(), language, fanSpeed),
@@ -262,6 +269,7 @@ export class IconListGenerator {
         }
         if (fanSpeeds.length != 0) {
             icons.push({
+                icon_id: "fan_speed_unknown",
                 icon: "mdi:fan-alert",
                 conditions: fanSpeeds.map(f => ({ entity: vacuumEntity, attribute: "fan_speed", value_not: f })),
                 tooltip: localize("icon.vacuum_set_fan_speed", language),

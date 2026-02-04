@@ -7,6 +7,7 @@ import { HaDropdown } from "../types/fixes";
 interface DropdownEntry {
     icon: string;
     name: string;
+    tooltip?: string;
 }
 
 @customElement("xvmc-dropdown-menu")
@@ -47,8 +48,10 @@ export class DropdownMenu<T extends DropdownEntry> extends RootlessLitElement {
                 ${this.values.map(
                     (mode, index) => html`
                         <div class="dropdown-list-item"
-                                       ?activated="${this.currentIndex === index}"
-                                       @click="${(): void => this.internalClick(index)}">
+                             ?activated="${this.currentIndex === index}"
+                             @click="${(): void => this.internalClick(index)}"
+                             title="${mode.tooltip ?? ''}"
+                        >
                             <div
                                 class="dropdown-menu-entry clickable ${this.currentIndex === index ? "selected" : ""}">
                                 <div

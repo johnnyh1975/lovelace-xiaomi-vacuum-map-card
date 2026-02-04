@@ -199,6 +199,7 @@ export interface ActionableObjectConfig {
     readonly hold_action?: ActionConfig;
     readonly double_tap_action?: ActionConfig;
     readonly variables?: VariablesStorage;
+    readonly remove?: boolean;
 }
 
 export interface ConditionalObjectConfig {

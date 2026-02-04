@@ -21,7 +21,7 @@ export class DropdownIcon extends RootlessLitElement {
 
     public render(): TemplateResult {
         const items = this.config.map(i => {
-            return { icon: i.icon, name: (i.label ?? "") };
+            return {icon: i.icon, name: (i.label ?? ""), tooltip: this.isInEditor ? `icon_id: ${i.icon_id}` : i.tooltip};
         });
         const currentIndex = this.config.findIndex(i => i.isSelected);
         const itemClass = `icon-menu-${this.config[0].menu_id}`;
