@@ -140,7 +140,7 @@ export class XiaomiVacuumMapCardEditor extends LitElement implements Omit<Lovela
                         .configValue="${"entity"}"
                         .value="${this._entity}">
                         ${vacuums.map(entity => {
-                            return html` <mwc-list-item .value="${entity}">${entity}</mwc-list-item> `;
+                            return html` <ha-list-item .value="${entity}">${entity}</ha-list-item> `;
                         })}
                     </ha-select>
                 </div>
@@ -154,7 +154,7 @@ export class XiaomiVacuumMapCardEditor extends LitElement implements Omit<Lovela
                         .configValue="${"vacuum_platform"}"
                         .value="${this._vacuum_platform}">
                         ${platforms.map(platform => {
-                            return html` <mwc-list-item .value="${platform}">${platform}</mwc-list-item> `;
+                            return html` <ha-list-item .value="${platform}">${platform}</ha-list-item> `;
                         })}
                     </ha-select>
                     <p>
@@ -179,7 +179,7 @@ export class XiaomiVacuumMapCardEditor extends LitElement implements Omit<Lovela
                         .configValue="${"camera"}"
                         .value="${this._camera}">
                         ${cameras.map(entity => {
-                            return html` <mwc-list-item .value="${entity}">${entity}</mwc-list-item> `;
+                            return html` <ha-list-item .value="${entity}">${entity}</ha-list-item> `;
                         })}
                     </ha-select>
                 </div>
@@ -202,22 +202,22 @@ export class XiaomiVacuumMapCardEditor extends LitElement implements Omit<Lovela
                 <div class="values separated selection-controls-wrapper">
                     <p>${this._localize("editor.label.selection")}</p>
                     <code class="selection-text">${this._lastSelection ?? "[]"}</code>
-                    <mwc-button @click="${() => this._copySelection()}">
+                    <ha-button @click="${() => this._copySelection()}">
                         ${this._localize("editor.label.copy")}
-                    </mwc-button>
+                    </ha-button>
                 </div>
                 <div class="values config-buttons-wrapper">
-                    <mwc-button @click="${() => this._setStaticConfig()}">
+                    <ha-button @click="${() => this._setStaticConfig()}">
                         ${this._localize("editor.label.set_static_config")}
-                    </mwc-button>
-                    <mwc-button
+                    </ha-button>
+                    <ha-button
                         @click="${() => XiaomiVacuumMapCardEditor._generateRoomsConfig()}"
                         .disabled=${roomsUnavailable}>
                         ${this._localize("editor.label.generate_rooms_config")}
-                    </mwc-button>
-                    <mwc-button @click="${() => XiaomiVacuumMapCardEditor._copyServiceCall()}">
+                    </ha-button>
+                    <ha-button @click="${() => XiaomiVacuumMapCardEditor._copyServiceCall()}">
                         ${this._localize("editor.label.copy_service_call")}
-                    </mwc-button>
+                    </ha-button>
                 </div>
                 <div class="version">${this._localize("common.version")} ${CARD_VERSION}</div>
                 ${ToastRenderer.render("editor")}
