@@ -212,7 +212,7 @@
             "label": "Gesamte gereinigte Fläche"
         },
         "cleaning_time": {
-            "label": "Zeit der Reinigung"
+            "label": "Dauer der Reinigung"
         },
         "total_cleaning_time": {
             "label": "Gesamte Reinigungszeit"
