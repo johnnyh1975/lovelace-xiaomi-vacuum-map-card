@@ -12,9 +12,9 @@ import * as deebotTemplate from "./platform_templates/DeebotUniverse_Deebot-4-Ho
 import * as tasshackDreameVacuumTemplate from "./platform_templates/Tasshack_dreame-vacuum.json";
 import * as roborockTemplate from "./platform_templates/humbertogontijo_homeassistant-roborock.json";
 import * as roborockCoreTemplate from "./platform_templates/roborock.json";
-
 import * as simpleWyzeTemplate from "./platform_templates/romedtino_simple-wyze-vac.json";
 import * as myneatoTemplate from "./platform_templates/BenjaminPaap_myneato.json";
+import * as johnnyh1975RoombaPlus from "./platform_templates/johnnyh1975_roomba_plus.json";
 import * as setupDecimalTemplate from "./platform_templates/setup_decimal.json";
 import * as setupIntegerTemplate from "./platform_templates/setup_integer.json";
 import {
@@ -46,6 +46,7 @@ export class PlatformGenerator {
     public static HUMBERTOGONTIJO_ROBOROCK_PLATFORM = "humbertogontijo/homeassistant-roborock";
     public static ROMEDTINO_SIMPLE_WAZE_PLATFORM = "romedtino/simple-wyze-vac";
     public static BENJAMIN_PAAP_MYNEATO_PLATFORM = "BenjaminPaap/home-assistant-myneato";
+    public static JOHNNYH1975_ROOMBA_PLUS = "johnnyh1975/ha_roomba_plus";
     public static SETUP_INTEGER_PLATFORM = "Setup integer";
     public static SETUP_DECIMAL_PLATFORM = "Setup decimal";
 
@@ -64,6 +65,7 @@ export class PlatformGenerator {
         [PlatformGenerator.HUMBERTOGONTIJO_ROBOROCK_PLATFORM, roborockTemplate as PlatformTemplate],
         [PlatformGenerator.SEND_COMMAND_PLATFORM, sendCommandTemplate],
         [PlatformGenerator.ALONE_XIAOMI_MIOT_PLATFORM, alOneHassXiaomiMiotTemplate],
+        [PlatformGenerator.JOHNNYH1975_ROOMBA_PLUS, johnnyh1975RoombaPlus],
         [PlatformGenerator.NEATO_PLATFORM, neatoTemplate],
         [PlatformGenerator.ROOMBA_PLATFORM, roombaTemplate],
         [PlatformGenerator.DEEBOTUNIVERSE_DEEBOT_4_HOME_ASSISTANT_PLATFORM, deebotTemplate as PlatformTemplate],
@@ -85,6 +87,7 @@ export class PlatformGenerator {
         [PlatformGenerator.ROBOROCK_PLATFORM, "Roborock"],
         [PlatformGenerator.SEND_COMMAND_PLATFORM, "sendCommand"],
         [PlatformGenerator.ALONE_XIAOMI_MIOT_PLATFORM, "alOneHassXiaomiMiot"],
+        [PlatformGenerator.JOHNNYH1975_ROOMBA_PLUS, "johnnyh1975RoombaPlus"],
         [PlatformGenerator.NEATO_PLATFORM, "neato"],
         [PlatformGenerator.ROOMBA_PLATFORM, "roomba"],
         [PlatformGenerator.DEEBOTUNIVERSE_DEEBOT_4_HOME_ASSISTANT_PLATFORM, "DeebotUniverseDeebot4homeAssistant"],
