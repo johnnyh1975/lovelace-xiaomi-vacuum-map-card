@@ -135,14 +135,12 @@ export class XiaomiVacuumMapCardEditor extends LitElement implements Omit<Lovela
                         naturalMenuWidth
                         fixedMenuPosition
                         label="${this._localize("editor.label.entity")}"
-                        @selected="${this._valueChanged}"
+                        @selected="${this._vacuumChanged}"
                         @closed="${ev => ev.stopPropagation()}"
                         .configValue="${"entity"}"
-                        .value="${this._entity}">
-                        ${vacuums.map(entity => {
-                            return html` <ha-list-item .value="${entity}">${entity}</ha-list-item> `;
-                        })}
-                    </ha-select>
+                        .value="${this._entity}"
+                        .options="${vacuums}"
+                    />
                 </div>
                 <div class="values">
                     <ha-select
@@ -152,11 +150,9 @@ export class XiaomiVacuumMapCardEditor extends LitElement implements Omit<Lovela
                         @selected="${this._platformChanged}"
                         @closed="${ev => ev.stopPropagation()}"
                         .configValue="${"vacuum_platform"}"
-                        .value="${this._vacuum_platform}">
-                        ${platforms.map(platform => {
-                            return html` <ha-list-item .value="${platform}">${platform}</ha-list-item> `;
-                        })}
-                    </ha-select>
+                        .value="${this._vacuum_platform}"
+                        .options="${platforms}"
+                    />
                     <p>
                         <a
                             href="${PlatformGenerator.getPlatformsDocumentationUrl(this._vacuum_platform)}"
@@ -177,11 +173,9 @@ export class XiaomiVacuumMapCardEditor extends LitElement implements Omit<Lovela
                         @selected="${this._cameraChanged}"
                         @closed="${ev => ev.stopPropagation()}"
                         .configValue="${"camera"}"
-                        .value="${this._camera}">
-                        ${cameras.map(entity => {
-                            return html` <ha-list-item .value="${entity}">${entity}</ha-list-item> `;
-                        })}
-                    </ha-select>
+                        .value="${this._camera}"
+                        .options="${cameras}"
+                    />
                 </div>
                 <div class="values">
                     <ha-formfield class="switch-wrapper" .label="${this._localize("editor.label.map_locked")}">
@@ -202,20 +196,20 @@ export class XiaomiVacuumMapCardEditor extends LitElement implements Omit<Lovela
                 <div class="values separated selection-controls-wrapper">
                     <p>${this._localize("editor.label.selection")}</p>
                     <code class="selection-text">${this._lastSelection ?? "[]"}</code>
-                    <ha-button @click="${() => this._copySelection()}">
+                    <ha-button size="small" variant="brand" appearance="filled" @click="${() => this._copySelection()}">
                         ${this._localize("editor.label.copy")}
                     </ha-button>
                 </div>
                 <div class="values config-buttons-wrapper">
-                    <ha-button @click="${() => this._setStaticConfig()}">
+                    <ha-button size="small" variant="brand" appearance="filled"  @click="${() => this._setStaticConfig()}">
                         ${this._localize("editor.label.set_static_config")}
                     </ha-button>
-                    <ha-button
-                        @click="${() => XiaomiVacuumMapCardEditor._generateRoomsConfig()}"
+                    <ha-button size="small" variant="brand" appearance="filled"
+                               @click="${() => XiaomiVacuumMapCardEditor._generateRoomsConfig()}"
                         .disabled=${roomsUnavailable}>
                         ${this._localize("editor.label.generate_rooms_config")}
                     </ha-button>
-                    <ha-button @click="${() => XiaomiVacuumMapCardEditor._copyServiceCall()}">
+                    <ha-button size="small" variant="brand" appearance="filled" @click="${() => XiaomiVacuumMapCardEditor._copyServiceCall()}">
                         ${this._localize("editor.label.copy_service_call")}
                     </ha-button>
                 </div>
@@ -303,7 +297,7 @@ export class XiaomiVacuumMapCardEditor extends LitElement implements Omit<Lovela
         if (!this._config || !this.hass) {
             return;
         }
-        const value = ev.target.value;
+        const value = ev.detail?.value ?? ev.target.value;
         if (this._vacuum_platform === value) return;
         const tmpConfig = { ...this._config };
         tmpConfig["vacuum_platform"] = value;
@@ -328,7 +322,7 @@ export class XiaomiVacuumMapCardEditor extends LitElement implements Omit<Lovela
         if (!this._config || !this.hass) {
             return;
         }
-        const value = ev.target.value;
+        const value = ev.detail?.value ?? ev.target.value;
         if (this._camera === value) return;
         const tmpConfig = { ...this._config };
         tmpConfig["map_source"] = { camera: value };
@@ -338,6 +332,18 @@ export class XiaomiVacuumMapCardEditor extends LitElement implements Omit<Lovela
         ) {
             tmpConfig["calibration_source"] = { camera: true };
         }
+        this._config = tmpConfig;
+        fireEvent(this, "config-changed", { config: this._config });
+    }
+
+    private _vacuumChanged(ev): void {
+        if (!this._config || !this.hass) {
+            return;
+        }
+        const value = ev.detail?.value ?? ev.target.value;
+        if (this._camera === value) return;
+        const tmpConfig = { ...this._config };
+        tmpConfig["entity"] = value;
         this._config = tmpConfig;
         fireEvent(this, "config-changed", { config: this._config });
     }
