@@ -140,7 +140,7 @@ export class XiaomiVacuumMapCardEditor extends LitElement implements Omit<Lovela
                         .configValue="${"entity"}"
                         .value="${this._entity}"
                         .options="${vacuums}"
-                    />
+                    ></ha-select>
                 </div>
                 <div class="values">
                     <ha-select
@@ -152,7 +152,7 @@ export class XiaomiVacuumMapCardEditor extends LitElement implements Omit<Lovela
                         .configValue="${"vacuum_platform"}"
                         .value="${this._vacuum_platform}"
                         .options="${platforms}"
-                    />
+                    ></ha-select>
                     <p>
                         <a
                             href="${PlatformGenerator.getPlatformsDocumentationUrl(this._vacuum_platform)}"
@@ -175,7 +175,7 @@ export class XiaomiVacuumMapCardEditor extends LitElement implements Omit<Lovela
                         .configValue="${"camera"}"
                         .value="${this._camera}"
                         .options="${cameras}"
-                    />
+                    ></ha-select>
                 </div>
                 <div class="values">
                     <ha-formfield class="switch-wrapper" .label="${this._localize("editor.label.map_locked")}">
