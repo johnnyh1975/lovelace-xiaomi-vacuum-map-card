@@ -7,6 +7,7 @@ import * as alOneHassXiaomiMiotTemplate from "./platform_templates/al-one_hass-x
 import * as tykarolViomiVacuumV8Template from "./platform_templates/tykarol_viomi_vacuum_v8.json";
 import * as hypferValetudoTemplate from "./platform_templates/hypfer_valetudo.json";
 import * as neatoTemplate from "./platform_templates/neato.json";
+import * as neatsvorTemplate from "./platform_templates/neatsvor.json";
 import * as roombaTemplate from "./platform_templates/roomba.json";
 import * as deebotTemplate from "./platform_templates/DeebotUniverse_Deebot-4-Home-Assistant.json";
 import * as tasshackDreameVacuumTemplate from "./platform_templates/Tasshack_dreame-vacuum.json";
@@ -39,6 +40,7 @@ export class PlatformGenerator {
     public static TYKAROL_VIOMI_VACUUM_V8_PLATFORM = "tykarol/viomi-vacuum-v8";
     public static HYPFER_VALETUDO_PLATFORM = "Hypfer/Valetudo";
     public static NEATO_PLATFORM = "Neato";
+    public static NEATSVOR_PLATFORM = "Neatsvor";
     public static ROOMBA_PLATFORM = "Roomba";
     public static TASSHACK_DREAME_VACUUM_PLATFORM = "Tasshack/dreame-vacuum";
     public static DEEBOTUNIVERSE_DEEBOT_4_HOME_ASSISTANT_PLATFORM = "DeebotUniverse/Deebot-4-Home-Assistant";
@@ -67,6 +69,7 @@ export class PlatformGenerator {
         [PlatformGenerator.ALONE_XIAOMI_MIOT_PLATFORM, alOneHassXiaomiMiotTemplate],
         [PlatformGenerator.JOHNNYH1975_ROOMBA_PLUS, johnnyh1975RoombaPlus],
         [PlatformGenerator.NEATO_PLATFORM, neatoTemplate],
+        [PlatformGenerator.NEATSVOR_PLATFORM, neatsvorTemplate as PlatformTemplate],
         [PlatformGenerator.ROOMBA_PLATFORM, roombaTemplate],
         [PlatformGenerator.DEEBOTUNIVERSE_DEEBOT_4_HOME_ASSISTANT_PLATFORM, deebotTemplate as PlatformTemplate],
         [PlatformGenerator.ROMEDTINO_SIMPLE_WAZE_PLATFORM, simpleWyzeTemplate],
@@ -89,6 +92,7 @@ export class PlatformGenerator {
         [PlatformGenerator.ALONE_XIAOMI_MIOT_PLATFORM, "alOneHassXiaomiMiot"],
         [PlatformGenerator.JOHNNYH1975_ROOMBA_PLUS, "johnnyh1975RoombaPlus"],
         [PlatformGenerator.NEATO_PLATFORM, "neato"],
+        [PlatformGenerator.NEATSVOR_PLATFORM, "neatsvor"],
         [PlatformGenerator.ROOMBA_PLATFORM, "roomba"],
         [PlatformGenerator.DEEBOTUNIVERSE_DEEBOT_4_HOME_ASSISTANT_PLATFORM, "DeebotUniverseDeebot4homeAssistant"],
         [PlatformGenerator.ROMEDTINO_SIMPLE_WAZE_PLATFORM, "romedtinoSimpleWyze"],
