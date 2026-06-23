@@ -17,7 +17,7 @@ import {
     EVENT_SERVICE_CALL,
     EVENT_SERVICE_CALL_GET,
 } from "./const";
-import { copyMessage } from "./utils";
+import { conditional, copyMessage, getAllEntitiesFromTheSameDevice } from "./utils";
 import { ToastRenderer } from "./renderers/toast-renderer";
 import { HomeAssistantFixed } from "./types/fixes";
 
@@ -212,6 +212,13 @@ export class XiaomiVacuumMapCardEditor extends LitElement implements Omit<Lovela
                     <ha-button size="small" variant="brand" appearance="filled" @click="${() => XiaomiVacuumMapCardEditor._copyServiceCall()}">
                         ${this._localize("editor.label.copy_service_call")}
                     </ha-button>
+                    ${conditional(this._config?.debug == true,
+                            () => html`
+                                <ha-button size="small" variant="brand" appearance="filled"
+                                           @click="${async () => this._copyEntityInfo(this.hass)}">
+                                    ${this._localize("editor.label.copy_entity_info")}
+                                </ha-button>
+                            `)}
                 </div>
                 <div class="version">${this._localize("common.version")} ${CARD_VERSION}</div>
                 ${ToastRenderer.render("editor")}
@@ -279,6 +286,17 @@ export class XiaomiVacuumMapCardEditor extends LitElement implements Omit<Lovela
     private _copySelection(): void {
         copyMessage(this._lastSelection ?? []);
         this._showToast("editor.label.copied", "mdi:content-copy", true);
+    }
+
+    private async _copyEntityInfo(hass: HomeAssistantFixed | undefined): Promise<void> {
+        if (hass) {
+            const entityInfo = await getAllEntitiesFromTheSameDevice(hass, this._entity);
+            console.log(JSON.stringify(entityInfo));
+            copyMessage(JSON.stringify(entityInfo));
+            this._showToast("editor.label.copied", "mdi:content-copy", true);
+        } else {
+            this._showToast("editor.label.copied", "mdi:content-copy", false);
+        }
     }
 
     private _showToast(text: string, icon: string, successful: boolean, additionalText = ""): void {

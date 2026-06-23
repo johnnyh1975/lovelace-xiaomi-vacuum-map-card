@@ -283,6 +283,7 @@ export function copyMessage(val: string): void {
     selBox.select();
     document.execCommand("copy");
     document.body.removeChild(selBox);
+    navigator.clipboard.writeText(val);
 }
 
 export async function evaluateJinjaTemplate(
