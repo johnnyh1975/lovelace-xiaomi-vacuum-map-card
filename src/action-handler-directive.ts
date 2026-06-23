@@ -37,7 +37,7 @@ export class XiaomiVacuumMapCardActionHandler extends HTMLElement implements Xia
 
     constructor() {
         super();
-        this.ripple = document.createElement("mwc-ripple");
+        this.ripple = document.createElement("ha-ripple");
     }
 
     public connectedCallback(): void {

@@ -14,9 +14,9 @@
                     "service_data": {
                         "command": "app_segment_clean",
                         "params": [{
-                            "segments": "[[selection]]",
-                            "repeat": "[[repeats]]"
-                        }],
+                                "segments": "[[selection]]",
+                                "repeat": "[[repeats]]"
+                            }],
                         "entity_id": "[[entity_id]]"
                     }
                 }
@@ -99,7 +99,7 @@
                 "service_call_schema": {
                     "service": "script.vacuum_follow_path",
                     "service_data": {
-                        "service": "roborock.vacuum_goto",
+                        "service": "roborock.set_vacuum_goto_position",
                         "mode": "individual",
                         "path": "[[selection]]",
                         "entity_id": "[[entity_id]]"
@@ -214,3 +214,4 @@
         }
     ]
 }
+
