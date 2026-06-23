@@ -103,6 +103,16 @@ windowWithCards.customCards.push({
     type: CARD_CUSTOM_ELEMENT_NAME,
     name: "Vacuum Map Card",
     description: localize("common.description"),
+    getEntitySuggestion: (hass, entityId) => {
+        if (entityId.split(".")[0] !== "vacuum") {
+            return null;
+        }
+        const config = XiaomiVacuumMapCard.generateConfig(hass, entityId);
+        if (config == undefined) return null;
+        return {
+            config: XiaomiVacuumMapCard.generateConfig(hass, entityId)
+        };
+    }
 });
 
 @customElement(CARD_CUSTOM_ELEMENT_NAME)
@@ -171,11 +181,17 @@ export class XiaomiVacuumMapCard extends LitElement {
 
     public static getStubConfig(hass: HomeAssistantFixed): XiaomiVacuumMapCardConfig | undefined {
         const entities = Object.keys(hass.states);
+        const vacuums = entities.filter(e => e.substring(0, e.indexOf(".")) === "vacuum");
+        if (vacuums.length === 0) return undefined;
+        return this.generateConfig(hass, vacuums[0])
+    }
+
+    public static generateConfig(hass: HomeAssistantFixed, vacuum_entity: string): XiaomiVacuumMapCardConfig | undefined {
+        const entities = Object.keys(hass.states);
         const cameras = entities
             .filter(e => ["camera", "image"].includes(e.substring(0, e.indexOf("."))))
             .filter(e => hass?.states[e].attributes["calibration_points"]);
-        const vacuums = entities.filter(e => e.substring(0, e.indexOf(".")) === "vacuum");
-        if (cameras.length === 0 || vacuums.length === 0) {
+        if (cameras.length === 0) {
             return undefined;
         }
         return {
@@ -186,7 +202,7 @@ export class XiaomiVacuumMapCard extends LitElement {
             calibration_source: {
                 camera: true,
             },
-            entity: vacuums[0],
+            entity: vacuum_entity,
             vacuum_platform: PlatformGenerator.XIAOMI_MIIO_PLATFORM,
         };
     }
