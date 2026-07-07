@@ -1007,7 +1007,12 @@ export class XiaomiVacuumMapCard extends LitElement {
                 const y = outline.reduce((a, v) => a + (v[1] ?? 0), 0);
 
                 const roomConfig = {
-                    id: room_id,
+                    // Prefer the platform-supplied ASCII-safe room_id over
+                    // the raw object key. The key is a display name for
+                    // some platforms (e.g. ha_roomba_plus) and may contain
+                    // characters this card's id validation rejects
+                    // (non-ASCII accents/umlauts) — see MapExtractorRoom.
+                    id: room.room_id ?? room_id,
                     icon: {
                         name: room.icon ?? "mdi:broom",
                         x: room.x ?? formatCoord(x, outline.length),
