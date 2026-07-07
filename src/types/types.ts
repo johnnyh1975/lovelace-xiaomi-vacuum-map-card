@@ -294,6 +294,17 @@ export interface MapExtractorRoom {
 export interface RoomConfigEventData {
     readonly modeIndex: number;
     readonly rooms: Array<RoomConfig>;
+    // v3.4.1 MULTI-CARD-ROOM-SCOPE: identifies which card's entity this
+    // response belongs to. EVENT_ROOM_CONFIG_GET/EVENT_ROOM_CONFIG are
+    // dispatched on `window` with no built-in scoping — with more than
+    // one xiaomi-vacuum-map-card instance mounted at once (e.g. one card
+    // per vacuum on the same dashboard view), every mounted card
+    // receives the same broadcast "generate rooms" request and every
+    // one of them replies, in unpredictable order. Without this field,
+    // the editor has no way to tell which reply belongs to the entity
+    // it's actually editing and may apply another card's rooms instead
+    // of its own. See _handleRoomsConfigGet/_handleRoomConfig.
+    readonly entity: string | undefined;
 }
 
 export interface EntityConfig {
