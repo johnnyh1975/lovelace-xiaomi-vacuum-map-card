@@ -283,6 +283,12 @@ export interface MapExtractorRoom {
     readonly icon: string | undefined;
     readonly x: number | undefined;
     readonly y: number | undefined;
+    // Optional ASCII-safe id, distinct from the object's own key (which may
+    // be a display name containing characters this card's id validation
+    // rejects, e.g. non-ASCII accents/umlauts). Platforms that supply one
+    // (e.g. ha_roomba_plus) have it preferred over the raw key when
+    // generating predefined_selections — see _getRoomsConfig().
+    readonly room_id: string | undefined;
 }
 
 export interface RoomConfigEventData {
